@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Página Viva — Sobre</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="home.css?v=7" rel="stylesheet">
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+
+    <header class="navbar navbar-expand-lg navbar-viva">
+      <div class="container py-2">
+        <a class="brand navbar-brand me-4" href="home.html">
+          <span class="bars"><span></span><span></span></span>
+          Página Viva
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu" aria-controls="navmenu" aria-expanded="false" aria-label="Abrir menu de navegação">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+          <nav aria-label="Principal">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-4 gap-2">
+            <li class="nav-item"><a class="nav-link nav-item-link" href="catalogo.html">Catálogo</a></li>
+            <li class="nav-item"><a class="nav-link nav-item-link muted" href="sobre.html">Sobre</a></li>
+            <li class="nav-item">
+              <div class="search-box">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="search" id="busca" aria-label="Buscar livros" placeholder="Buscar livros...">
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="cart-link" href="carrinho.html" aria-label="Carrinho">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.3 4.6A1 1 0 0 0 5.6 19H17M17 19a2 2 0 1 0 4 0 2 2 0 0 0-4 0zM7 19a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/></svg>
+                <span class="badge-cart">2</span>
+              </a>
+            </li>
+          </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <section class="hero">
+        <div class="container">
+          <div class="eyebrow">Sobre nós</div>
+          <h1>Uma livraria feita<br>para quem ama ler</h1>
+          <p>A Página Viva é uma livraria online que aproxima leitores e boas histórias. Busque por título ou autor, confira a disponibilidade e retire na loja ou receba em casa — tudo em poucos passos.</p>
+          <a href="catalogo.html" class="btn btn-viva-primary">Ver catálogo</a>
+        </div>
+      </section>
+
+      <section class="destaques">
+        <div class="container">
+          <h2>O que oferecemos</h2>
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col"><article class="panel-card h-100"><h3>Catálogo variado</h3><p class="mb-0">Ficção, romance, aventura e poesia reunidos em um só lugar.</p></article></div>
+            <div class="col"><article class="panel-card h-100"><h3>Compra simples</h3><p class="mb-0">Escolha o livro, adicione ao carrinho e finalize em poucos cliques.</p></article></div>
+            <div class="col"><article class="panel-card h-100"><h3>Retirada ou entrega</h3><p class="mb-0">Retire na loja sem custo ou receba no conforto de casa.</p></article></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container py-4 d-flex flex-wrap justify-content-between gap-2">
+        <span>&copy; 2026 Página Viva — Livraria Online</span>
+        <nav aria-label="Rodapé">
+          <a href="home.html">Início</a>
+          <a href="catalogo.html">Catálogo</a>
+          <a href="sobre.html">Sobre</a>
+          <a href="carrinho.html">Carrinho</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="books.js"></script>
+    <script src="cart.js"></script>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+  </body>
+</html>

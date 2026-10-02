@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Página Viva — Detalhes do livro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="home.css?v=7" rel="stylesheet">
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+
+    <header class="navbar navbar-expand-lg navbar-viva">
+      <div class="container py-2">
+        <a class="brand navbar-brand me-4" href="home.html">
+          <span class="bars"><span></span><span></span></span>
+          Página Viva
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu" aria-controls="navmenu" aria-expanded="false" aria-label="Abrir menu de navegação">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+          <nav aria-label="Principal">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-4 gap-2">
+            <li class="nav-item"><a class="nav-link nav-item-link" href="catalogo.html">Catálogo</a></li>
+            <li class="nav-item"><a class="nav-link nav-item-link muted" href="sobre.html">Sobre</a></li>
+            <li class="nav-item">
+              <div class="search-box">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="search" id="busca" aria-label="Buscar livros" placeholder="Buscar livros...">
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="cart-link" href="carrinho.html" aria-label="Carrinho">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.3 4.6A1 1 0 0 0 5.6 19H17M17 19a2 2 0 1 0 4 0 2 2 0 0 0-4 0zM7 19a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/></svg>
+                <span class="badge-cart">2</span>
+              </a>
+            </li>
+          </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main id="conteudo">
+    <section class="product-page">
+      <div class="container">
+        <a href="catalogo.html" class="breadcrumb-back">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          Voltar ao catálogo
+        </a>
+
+        <div class="row g-5 mt-2">
+          <div class="col-lg-5">
+            <div class="product-cover" id="productCover"></div>
+          </div>
+          <div class="col-lg-7">
+            <div class="product-category" id="productCategory"></div>
+            <h1 class="product-title" id="productTitle"></h1>
+            <div class="product-author" id="productAuthor"></div>
+            <div class="product-price" id="productPrice"></div>
+            <p class="product-description" id="productDescription"></p>
+
+            <div class="product-meta">
+              <div class="row"><span>Editora</span><strong id="metaEditora"></strong></div>
+              <div class="row"><span>Páginas</span><strong id="metaPaginas"></strong></div>
+              <div class="row"><span>Disponibilidade</span><strong id="metaDisponibilidade"></strong></div>
+            </div>
+
+            <div class="product-qty">
+              <label for="qtyValue">Quantidade</label>
+              <div class="qty-stepper">
+                <button type="button" id="qtyMinus" aria-label="Diminuir">−</button>
+                <input type="text" id="qtyValue" value="1" readonly>
+                <button type="button" id="qtyPlus" aria-label="Aumentar">+</button>
+              </div>
+            </div>
+
+            <div class="product-actions">
+              <button type="button" id="addToCartBtn" class="btn btn-viva-primary">Adicionar ao carrinho</button>
+              <a href="catalogo.html" class="btn btn-viva-outline">Continuar navegando</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container py-4 d-flex flex-wrap justify-content-between gap-2">
+        <span>&copy; 2026 Página Viva — Livraria Online</span>
+        <nav aria-label="Rodapé">
+          <a href="home.html">Início</a>
+          <a href="catalogo.html">Catálogo</a>
+          <a href="sobre.html">Sobre</a>
+          <a href="carrinho.html">Carrinho</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="books.js"></script>
+    <script src="cart.js"></script>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id') || '1';
+      const book = BOOKS[id] || BOOKS['1'];
+
+      const coverEl = document.getElementById('productCover');
+      coverEl.classList.add(book.cover);
+      if (book.image) {
+        const img = document.createElement('img');
+        img.src = book.image;
+        img.alt = 'Capa do livro ' + book.title;
+        coverEl.appendChild(img);
+      } else {
+        coverEl.classList.add('placeholder');
+      }
+
+      document.getElementById('productCategory').textContent = book.category;
+      document.getElementById('productTitle').textContent = book.title;
+      document.getElementById('productAuthor').textContent = book.author;
+      document.getElementById('productPrice').textContent = formatPrice(book.price);
+      document.getElementById('productDescription').textContent = book.description;
+      document.getElementById('metaEditora').textContent = book.editora;
+      document.getElementById('metaPaginas').textContent = book.paginas;
+      document.getElementById('metaDisponibilidade').textContent = book.disponibilidade;
+      document.title = 'Página Viva — ' + book.title;
+
+      const qtyValue = document.getElementById('qtyValue');
+      document.getElementById('qtyMinus').addEventListener('click', () => {
+        qtyValue.value = Math.max(1, parseInt(qtyValue.value, 10) - 1);
+      });
+      document.getElementById('qtyPlus').addEventListener('click', () => {
+        qtyValue.value = parseInt(qtyValue.value, 10) + 1;
+      });
+
+      document.getElementById('addToCartBtn').addEventListener('click', () => {
+        addToCart(id, parseInt(qtyValue.value, 10));
+        window.location.href = 'carrinho.html';
+      });
+    </script>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+  </body>
+</html>
